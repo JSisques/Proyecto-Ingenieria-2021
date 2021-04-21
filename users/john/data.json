@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "type": "user",
+  "username": "john",
+  "password": "",
+  "email": "1",
+  "name": "",
+  "lastName": "",
+  "creationDate": "Apr 20, 2021 6:43:40 PM",
+  "lists": [
+    {
+      "id": 1,
+      "name": "lista 1",
+      "creationDate": "Apr 20, 2021 6:43:52 PM",
+      "favourite": false,
+      "type": "",
+      "icon": "",
+      "itemList": [
+        {
+          "id": 1,
+          "name": "1",
+          "description": "1"
+        },
+        {
+          "id": 2,
+          "name": "2",
+          "description": "2"
+        }
+      ]
+    }
+  ]
+}
