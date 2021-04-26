@@ -51,7 +51,7 @@ public class Main {
 				System.out.println(userLists.toString());
 				break;
 			case 2:
-				// Añadir lista
+				// Aï¿½adir lista
 
 				System.out.println("Como se llama la lista?");
 				String listName = scan.nextLine();
@@ -98,8 +98,8 @@ public class Main {
 				break;
 			case 6: //Borrar CUENTA AL COMPLETO
 				
-				manageFile.BorrarFile(user);
-				manageFile.BorrarPath(user);
+				manageFile.borrarFile(user);
+				manageFile.borrarPath(user);
 				System.out.print("Hasta luego!");
 				System.exit(0);
 				break;

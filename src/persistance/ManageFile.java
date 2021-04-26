@@ -43,13 +43,24 @@ public class ManageFile {
 		comprobarSiExiste(file);
 	}
 
+	/**
+	 * Comprobar si existe un fichero
+	 * @param file El fichero que queremos comprobar
+	 * @return True siempre ya que en el caso de no existir se crea
+	 */
 	private boolean comprobarSiExiste(File file) {
 
 		boolean respuesta = file.exists() ? true : createFile(file);
 		return respuesta;
 
 	}
-
+	
+	
+	/**
+	 * Crea un fichero en una ruta determinada
+	 * @param file El fichero que queremos crear
+	 * @return True si el archivo se ha creado, false en caso contrario
+	 */
 	public boolean createFile(File file) {
 		System.out.println("Creando archivo");
 		boolean response = false;
@@ -148,7 +159,7 @@ public class ManageFile {
 	}
 	
 	
-	public void BorrarPath(User user) { //elimino la carpeta pero antes debemos eliminar el archivo
+	public void borrarPath(User user) { //elimino la carpeta pero antes debemos eliminar el archivo
 		this.path = "./users/" + user.getUsername() + "/";
 		System.out.println(path);
 		
@@ -163,7 +174,7 @@ public class ManageFile {
 		}   
 	}
 
-	public void BorrarFile(User user) { //elimino un archivo dentro de la carpeta del usuario
+	public void borrarFile(User user) { //elimino un archivo dentro de la carpeta del usuario
 	 
 		comprobarSiExiste(file);
 		
