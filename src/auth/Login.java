@@ -7,14 +7,21 @@ public class Login {
 
 	public static User login(User user) {
 		
+		User userResponse;
+		
 		ManageFile mf = new ManageFile(user);
 		
-		user = mf.loadJsonUserData();
+		User userFromJson = mf.loadJsonUserData();
 		
-		//System.out.println(user.toString());
+		userResponse = checkPassword(user, userFromJson) ? userFromJson : null;
 		
+		return userResponse;
+	}
+
+	private static boolean checkPassword(User user, User userFromJson) {
+		boolean response = (user.getPassword().equals(userFromJson.getPassword())) ? true: false;
 		
-		return user;
+		return response;
 	}
 
 }

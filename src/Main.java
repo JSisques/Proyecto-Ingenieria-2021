@@ -18,6 +18,7 @@ public class Main {
 		Application.initApplication();
 		
 		login();
+		
 
 		ManageFile manageFile = new ManageFile(user);
 		
@@ -111,7 +112,7 @@ public class Main {
 
 		user = new User(username, password);
 		
-		Login.login(user);
+		user = Login.login(user);
 
 	}
 

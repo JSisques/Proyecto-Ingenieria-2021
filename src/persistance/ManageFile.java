@@ -35,10 +35,10 @@ public class ManageFile {
 
 		gson = new Gson();
 
-		this.path = "./users/" + user.getUsername() + "/";
-		System.out.println(path);
 		fileName = "data.json";
-		file = new File(this.path, fileName);
+		path = "./users/" + user.getUsername() + "/" + fileName;
+		System.out.println(path);
+		file = new File(path);
 
 		comprobarSiExiste(file);
 	}
@@ -94,9 +94,9 @@ public class ManageFile {
 		User user = null;
 
 		try {
-		    Reader reader = Files.newBufferedReader(Paths.get(this.path + fileName));
-		    user = gson.fromJson(reader,User.class);
-		    
+		    Reader reader = Files.newBufferedReader(Paths.get(path));
+		    user = gson.fromJson(reader, User.class);
+		    System.out.println(user.toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
