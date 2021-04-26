@@ -7,14 +7,14 @@ public class Application {
 	
 	public static void initApplication() {
 		
-		
 		loadData();
+		
 	}
 	
 	public static void finishApplication() {
 		
-		
 		saveData();
+		
 	}
 
 	private static void loadData() {

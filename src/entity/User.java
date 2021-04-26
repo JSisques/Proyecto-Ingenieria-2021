@@ -16,25 +16,25 @@ public class User {
 	private String name;
 	private String lastName;
 	private Date creationDate;
-	private List lists;
+	private List<UserList> lists;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String type, String username, String password, String email) {
+	public User(String username, String password) {
 		super();
 		
 		totalUsersCreated++;
 		
 		this.id = totalUsersCreated;
-		this.type = type;
+		this.type = "user";
 		this.username = username;
 		this.password = password;
-		this.email = email;
+		this.email = "";
 		this.name = "";
 		this.lastName = "";
-		this.lists = new ArrayList<Component>();
+		this.lists = new ArrayList<UserList>();
 		this.creationDate = new Date();
 		System.out.println(creationDate);
 	}
@@ -107,11 +107,11 @@ public class User {
 		return lists;
 	}
 
-	public void setLists(List lists) {
+	public void setLists(List<UserList> lists) {
 		this.lists = lists;
 	}
 	
-	public boolean addList(Component list) {
+	public boolean addList(UserList list) {
 		lists.add(list);
 		return true;
 	}

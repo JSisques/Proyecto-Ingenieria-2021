@@ -1,7 +1,8 @@
 import java.util.List;
 import java.util.Scanner;
 
-import entity.Component;
+import auth.Login;
+import entity.UserList;
 import entity.Item;
 import entity.User;
 import persistance.ManageFile;
@@ -60,7 +61,7 @@ public class Main {
 				System.out.println("Cuantos items tiene la lista?");
 				int numItems = Integer.parseInt(scan.nextLine());
 
-				Component itemList = new Component(listName, listType, listIcon);
+				UserList itemList = new UserList(listName, listType, listIcon);
 
 				for (int i = 0; i < numItems; i++) {
 					System.out.println("Nombre: ");
@@ -103,14 +104,14 @@ public class Main {
 	}
 
 	private static void login() {
-		System.out.println("Introduce tu email: ");
-		String email = scan.nextLine();
 		System.out.println("Introduce tu username: ");
 		String username = scan.nextLine();
 		System.out.println("Introduce tu password: ");
 		String password = scan.nextLine();
 
-		user = new User("user", username, password, email);
+		user = new User(username, password);
+		
+		Login.login(user);
 
 	}
 

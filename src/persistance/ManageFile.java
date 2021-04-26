@@ -13,7 +13,7 @@ import java.util.Properties;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import entity.Component;
+import entity.UserList;
 import entity.Item;
 import entity.User;
 
@@ -21,7 +21,7 @@ public class ManageFile {
 
 	private File file;
 
-	private String path; // proyecto/users/nombreUsuario/data.json
+	private String path; // ./users/nombreUsuario/data.json
 	private String fileName;
 
 	Gson gson;
@@ -67,16 +67,6 @@ public class ManageFile {
 		return response;
 	}
 
-	/*
-	 * public boolean deleteUser() {
-	 * 
-	 * }
-	 * 
-	 * public boolean updateUser() {
-	 * 
-	 * }
-	 * 
-	 */
 	public boolean saveJsonUserData(User user) {
 		boolean response = false;
 		
@@ -121,7 +111,7 @@ public class ManageFile {
 		try {
 			properties.load(new FileReader(file));
 			User.setTotalUsersCreated(Integer.parseInt(properties.getProperty("totalUsers")));
-			Component.setTotalListCreated(Integer.parseInt(properties.getProperty("totalLists")));
+			UserList.setTotalListCreated(Integer.parseInt(properties.getProperty("totalLists")));
 			Item.setTotalItemsCreated(Integer.parseInt(properties.getProperty("totalItems")));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -133,7 +123,7 @@ public class ManageFile {
 		Properties properties = new Properties();
 		try {
 			properties.setProperty("totalUsers", String.valueOf(User.getTotalUsersCreated()));
-			properties.setProperty("totalLists", String.valueOf(Component.getTotalListCreated()));
+			properties.setProperty("totalLists", String.valueOf(UserList.getTotalListCreated()));
 			properties.setProperty("totalItems", String.valueOf(Item.getTotalItemsCreated()));
 			properties.store(new FileWriter(file), "App data");
 		} catch (IOException e) {

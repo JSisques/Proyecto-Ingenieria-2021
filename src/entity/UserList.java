@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Component {
+public class UserList {
 	
 	private static int totalListCreated;
 
@@ -14,13 +14,13 @@ public class Component {
 	private boolean favourite;
 	private String type;
 	private String icon;
-	private List itemList;
+	private List<Item> itemList;
 	
-	public Component() {
+	public UserList() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Component(String name, String type, String icon) {
+	public UserList(String name, String type, String icon) {
 		super();
 		
 		totalListCreated++;
@@ -78,7 +78,7 @@ public class Component {
 		return itemList;
 	}
 
-	public void setItemList(List itemList) {
+	public void setItemList(List<Item> itemList) {
 		this.itemList = itemList;
 	}
 	
@@ -90,13 +90,12 @@ public class Component {
 	}
 	
 	
-	
 	public static int getTotalListCreated() {
 		return totalListCreated;
 	}
 
 	public static void setTotalListCreated(int totalListCreated) {
-		Component.totalListCreated = totalListCreated;
+		UserList.totalListCreated = totalListCreated;
 	}
 
 	public int getId() {
