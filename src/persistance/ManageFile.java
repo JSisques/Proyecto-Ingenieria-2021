@@ -146,4 +146,31 @@ public class ManageFile {
 		
 		loadAppData();
 	}
+	
+	
+	public void BorrarPath(User user) { //elimino la carpeta pero antes debemos eliminar el archivo
+		this.path = "./users/" + user.getUsername() + "/";
+		System.out.println(path);
+		
+		String ficheroruta = file.getParent();
+		System.out.println(ficheroruta);
+		File ficheroeliminar = new File(ficheroruta);
+		
+		if (ficheroeliminar.delete()) { 
+			System.out.println("Deleted the folder: " + ficheroeliminar.getName());
+		} else {
+			System.out.println("Failed to delete the folder.");
+		}   
+	}
+
+	public void BorrarFile(User user) { //elimino un archivo dentro de la carpeta del usuario
+	 
+		comprobarSiExiste(file);
+		
+	    if (file.delete()) { 
+	      System.out.println("Deleted the file: " + file.getName());
+	    } else {
+	      System.out.println("Failed to delete the file.");
+	    } 
+	} 
 }

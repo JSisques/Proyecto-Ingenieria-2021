@@ -32,6 +32,7 @@ public class Main {
 			System.out.println("[3] Ver toda la info del usuario");
 			System.out.println("[4] Guardar los datos");
 			System.out.println("[5] Cargar los datos de un usuario");
+			System.out.println("[6] Eliminar cuenta");
 			System.out.println("[0] Salir");
 
 			try {
@@ -50,7 +51,7 @@ public class Main {
 				System.out.println(userLists.toString());
 				break;
 			case 2:
-				// AÃ±adir lista
+				// Añadir lista
 
 				System.out.println("Como se llama la lista?");
 				String listName = scan.nextLine();
@@ -86,7 +87,6 @@ public class Main {
 
 			case 4:
 
-
 				manageFile.saveJsonUserData(user);
 
 				break;
@@ -95,6 +95,13 @@ public class Main {
 				user = manageFile.loadJsonUserData();
 				System.out.println(user.toString());
 
+				break;
+			case 6: //Borrar CUENTA AL COMPLETO
+				
+				manageFile.BorrarFile(user);
+				manageFile.BorrarPath(user);
+				System.out.print("Hasta luego!");
+				System.exit(0);
 				break;
 
 			}
