@@ -1,0 +1,37 @@
+{
+  "id": 6,
+  "type": "user",
+  "username": "prueba",
+  "password": "1234",
+  "email": "",
+  "name": "",
+  "lastName": "",
+  "creationDate": "May 9, 2021 7:13:05 PM",
+  "lists": [
+    {
+      "id": 4,
+      "name": "lista1",
+      "creationDate": "May 9, 2021 7:13:53 PM",
+      "favourite": false,
+      "type": "numerica",
+      "icon": "",
+      "itemList": [
+        {
+          "id": 10,
+          "name": "1",
+          "description": "1"
+        },
+        {
+          "id": 11,
+          "name": "2",
+          "description": "2"
+        },
+        {
+          "id": 12,
+          "name": "3",
+          "description": "3"
+        }
+      ]
+    }
+  ]
+}

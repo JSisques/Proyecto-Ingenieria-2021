@@ -103,7 +103,7 @@ public class User {
 		this.creationDate = creationDate;
 	}
 
-	public List getLists() {
+	public List<UserList> getLists() {
 		return lists;
 	}
 
@@ -113,6 +113,11 @@ public class User {
 	
 	public boolean addList(UserList list) {
 		lists.add(list);
+		return true;
+	}
+	
+	public boolean removeList(UserList list) {
+		lists.remove(list);
 		return true;
 	}
 	

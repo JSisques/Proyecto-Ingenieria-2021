@@ -11,9 +11,12 @@ public class Login {
 		
 		ManageFile mf = new ManageFile(user);
 		
-		User userFromJson = mf.loadJsonUserData();
-		
-		userResponse = checkPassword(user, userFromJson) ? userFromJson : null;
+		try {
+			User userFromJson = mf.loadJsonUserData();
+			userResponse = checkPassword(user, userFromJson) ? userFromJson : null;
+		} catch (Exception e) {
+			userResponse = user;
+		}
 		
 		return userResponse;
 	}
