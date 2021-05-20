@@ -1,17 +1,17 @@
 {
-  "id": 16,
+  "id": 18,
   "type": "user",
-  "username": "p",
+  "username": "javitis",
   "password": "1234",
   "email": "javierplazasisques@gmail.com",
-  "name": "Javi",
-  "lastName": "Plaza Sisqués",
-  "creationDate": "May 19, 2021 4:46:38 PM",
+  "name": "",
+  "lastName": "",
+  "creationDate": "May 20, 2021 1:22:44 PM",
   "lists": [
     {
       "id": 6,
-      "name": "Lista 1",
-      "creationDate": "May 20, 2021 12:46:41 PM",
+      "name": "l1",
+      "creationDate": "May 20, 2021 1:24:10 PM",
       "favourite": false,
       "type": "",
       "icon": "",
@@ -35,11 +35,6 @@
           "id": 23,
           "name": "4",
           "description": "4"
-        },
-        {
-          "id": 24,
-          "name": "5",
-          "description": "5"
         }
       ]
     }

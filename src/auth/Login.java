@@ -35,7 +35,8 @@ public class Login {
 	
 	public static User singUp(String username, String password, String email) {
 		User u = new User(username, password, email	);
-		return new User();
+		
+		return u;
 		
 	}
 

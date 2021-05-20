@@ -16,14 +16,43 @@ public class Main {
 	static User user;
 
 	public static void main(String[] args) {
+		
+		int option = -1;
 
 		Application.initApplication();
 
-		while (!login()) {}
+		System.out.println("Bienvenido, selecciona una opción:");
+		System.out.println("[1] => Sign in");
+		System.out.println("[2] => Sign up");
+		System.out.println("[0] => Salir");
+		option = Integer.parseInt(scan.nextLine());
+		
+		switch (option) {
+		case 1:
+			
+			while (!login()) {}
+			
+			break;
+			
+		case 2:
+			
+			System.out.println("Introduce tu username: ");
+			String username = scan.nextLine();
+			System.out.println("Introduce tu password: ");
+			String password = scan.nextLine();
+			System.out.println("Introduce tu email: ");
+			String email = scan.nextLine();
+			
+			user = Login.singUp(username, password, email);
+			
+			break;
+			
+		case 0:
+			System.exit(0);
+		}
+		
 		
 		ManageFile manageFile = new ManageFile(user);
-
-		int option = -1;
 
 		do {
 
@@ -178,6 +207,8 @@ public class Main {
 				itemName = scan.nextLine();
 				
 				userLists = user.getLists();
+				
+				
 				
 				break;
 
