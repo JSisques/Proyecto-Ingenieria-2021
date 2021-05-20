@@ -22,7 +22,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password) {
+	public User(String username, String password, String email) {
 		super();
 		
 		totalUsersCreated++;
@@ -31,7 +31,7 @@ public class User {
 		this.type = "user";
 		this.username = username;
 		this.password = password;
-		this.email = "";
+		this.email = email;
 		this.name = "";
 		this.lastName = "";
 		this.lists = new ArrayList<UserList>();

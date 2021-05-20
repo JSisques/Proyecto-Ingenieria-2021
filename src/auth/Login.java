@@ -26,5 +26,17 @@ public class Login {
 		
 		return response;
 	}
+	
+	public static User auxLogin(String username, String password) {
+		
+		return new User();
+		
+	}
+	
+	public static User singUp(String username, String password, String email) {
+		User u = new User(username, password, email	);
+		return new User();
+		
+	}
 
 }

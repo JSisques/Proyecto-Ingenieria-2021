@@ -19,8 +19,8 @@ public class Main {
 
 		Application.initApplication();
 
-		login();
-
+		while (!login()) {}
+		
 		ManageFile manageFile = new ManageFile(user);
 
 		int option = -1;
@@ -28,15 +28,17 @@ public class Main {
 		do {
 
 			System.out.println("Bienvenido, selecciona una opción:");
-			System.out.println("[1] Ver mis listas");
-			System.out.println("[2] Añadir una lista");
-			System.out.println("[3] Ver toda la info del usuario");
-			System.out.println("[4] Guardar los datos");
-			System.out.println("[5] Cargar los datos de un usuario");
-			System.out.println("[6] Eliminar cuenta");
-			System.out.println("[7] Enviar correo electrónico");
-			System.out.println("[8] Añadir una item a una lista");
-			System.out.println("[9] Borrar una lista");
+			System.out.println("[1]  => 	Ver mis listas");
+			System.out.println("[2]  => 	Añadir una lista");
+			System.out.println("[3]  => 	Ver toda la info del usuario");
+			System.out.println("[4]  => 	Guardar los datos");
+			System.out.println("[5]  => 	Cargar los datos de un usuario");
+			System.out.println("[6]  =>		Eliminar cuenta");
+			System.out.println("[7]  => 	Enviar correo electrónico");
+			System.out.println("[8]  =>		Añadir un item a una lista");
+			System.out.println("[9]  => 	Borrar una list");
+			System.out.println("[10] => 	Cambiar información personal");
+			System.out.println("[11] => 	Borrar un item de una lista");
 			System.out.println("[0] Salir");
 
 			try {
@@ -110,7 +112,7 @@ public class Main {
 			case 7:
 
 				Email email = new Email();
-				email.sendEmail(user.getEmail());
+				email.sendEmail(user);
 				break;
 			case 8:
 
@@ -151,6 +153,34 @@ public class Main {
 				user.removeList(ul);
 
 				break;
+			
+			case 10:
+
+				System.out.println("Introduce el correo electronico");
+				String changeEmail = scan.nextLine();
+				System.out.println("Introduce el nombre");
+				String changeName = scan.nextLine();
+				System.out.println("Introduce el apellido");
+				String changeLastName = scan.nextLine();
+				
+				user.setEmail(changeEmail);
+				user.setName(changeName);
+				user.setLastName(changeLastName);
+				
+				break;
+				
+			case 11:
+				
+				System.out.println("Introduce el nombre de la lista: ");
+				l = scan.nextLine();
+				
+				System.out.println("Introduce el nombre del item: ");
+				itemName = scan.nextLine();
+				
+				userLists = user.getLists();
+				
+				break;
+
 
 			}
 
@@ -159,15 +189,27 @@ public class Main {
 		Application.finishApplication();
 	}
 
-	private static void login() {
+	private static boolean login() {
+		boolean response = false;
+		
 		System.out.println("Introduce tu username: ");
 		String username = scan.nextLine();
 		System.out.println("Introduce tu password: ");
 		String password = scan.nextLine();
+		System.out.println("Introduce tu email: ");
+		String email = scan.nextLine();
 
-		user = new User(username, password);
+		user = new User(username, password, email);
 
 		user = Login.login(user);
+		
+		if (user == null) {
+			System.err.println("Error, usuario o contraseña incorrectos");
+		} else {
+			response = true;
+		}
+		
+		return response;
 
 	}
 

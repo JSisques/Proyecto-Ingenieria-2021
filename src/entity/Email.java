@@ -8,19 +8,15 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import persistance.ManageJson;
+
 public class Email {
 	
-	private String destiny;
-	private String subject;
-	private String body;
-	private String sender;
-	private String password;
-	private int port;
-	private boolean auth;
 	
-	
-	public boolean sendEmail(String destiny) {
+	public boolean sendEmail(User user) {
 		boolean response = false;
+		
+		String destiny = user.getEmail();
 		
 		Properties p = new Properties();
 		
@@ -42,7 +38,7 @@ public class Email {
 				message.setFrom(new InternetAddress("Listphy"));
 				message.addRecipients(Message.RecipientType.TO, destiny);
 				message.setSubject("Datos personales de su cuenta");
-				message.setText("Prueba de envio");
+				message.setText(ManageJson.convertToJson(user));
 				Transport transport = sesion.getTransport("smtp");
 				transport.connect("smtp.gmail.com", "Listphy", "ProyectoIngenieria2021");
 				transport.sendMessage(message, message.getAllRecipients());
